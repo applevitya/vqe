@@ -45,7 +45,7 @@ def d_U(phi, delta,i): # derivative of U_operator  i - circuit B (B1 or B2)
     Z = RZGate(delta).to_matrix()
     return {
         i == 1: RYGate(2 * phi + pi).to_matrix()@Z.conjugate()@Y.transpose(),
-        i == 2: Y@Z.conjugate()@RYGate(-2*phi+pi).to_matrix().transpose()
+        i == 2: Y@Z.conjugate()@RYGate(-2*phi+pi).to_matrix()
     }[True] 
 
 def U_circuit(phi, N,i): # N = derivative angle number   i - circuit B (B1 or B2) 
