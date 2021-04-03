@@ -1,5 +1,5 @@
 import numpy as np
-from math import math
+import math as math
 
 # generalized Controlled Gate
 def C_Gate(U, q): # U - numpy array; n - number of qibits

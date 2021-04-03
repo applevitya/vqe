@@ -59,7 +59,7 @@ def U_circuit(phi, N,i): # N = derivative angle number   i - circuit B (B1 or B2
 
 
 def B(phi,N,k,i): # i - circuit B (B1 or B2) 
-    return U_circuit(phi,0,i).conjugate().transpose()@schwinger_matrix(k)@U_circuit(phi,N,i)
+    return (U_circuit(phi,0,i).conjugate().transpose())@schwinger_matrix(k)@U_circuit(phi,N,i)
 
 def hadamard(phi,N,k,n): 
     cir = psi1@C_Gate(B(phi,N,k,1),3)@psi1@psi0
@@ -69,29 +69,28 @@ def hadamard(phi,N,k,n):
         t2 = np.sum((np.abs(cir2)**2)[:4])
         return 4*t+4*t2-4
     else:
-        eps = 14
         d = {
-            0:round(cir[0][0].real/(np.sum(cir).real),eps),
-            1:round(cir[1][0].real/(np.sum(cir).real),eps),
-            2:round(cir[2][0].real/(np.sum(cir).real),eps),
-            3:round(cir[3][0].real/(np.sum(cir).real),eps),
-            4:round(cir[4][0].real/(np.sum(cir).real),eps),
-            5:round(cir[5][0].real/(np.sum(cir).real),eps),
-            6:round(cir[6][0].real/(np.sum(cir).real),eps),
-            7:round(cir[7][0].real/(np.sum(cir).real),eps)
+            0:np.abs(cir[0][0])**2,
+            1:np.abs(cir[1][0])**2,
+            2:np.abs(cir[2][0])**2,
+            3:np.abs(cir[3][0])**2,
+            4:np.abs(cir[4][0])**2,
+            5:np.abs(cir[5][0])**2,
+            6:np.abs(cir[6][0])**2,
+            7:np.abs(cir[7][0])**2
         }
         d2 = {
-            0:round(cir2[0][0].real/(np.sum(cir2).real),eps),
-            1:round(cir2[1][0].real/(np.sum(cir2).real),eps),
-            2:round(cir2[2][0].real/(np.sum(cir2).real),eps),
-            3:round(cir2[3][0].real/(np.sum(cir2).real),eps),
-            4:round(cir2[4][0].real/(np.sum(cir2).real),eps),
-            5:round(cir2[5][0].real/(np.sum(cir2).real),eps),
-            6:round(cir2[6][0].real/(np.sum(cir2).real),eps),
-            7:round(cir2[7][0].real/(np.sum(cir2).real),eps)
+            0:np.abs(cir2[0][0])**2,
+            1:np.abs(cir2[1][0])**2,
+            2:np.abs(cir2[2][0])**2,
+            3:np.abs(cir2[3][0])**2,
+            4:np.abs(cir2[4][0])**2,
+            5:np.abs(cir2[5][0])**2,
+            6:np.abs(cir2[6][0])**2,
+            7:np.abs(cir2[7][0])**2
         }
         p = np.random.multinomial(n, [d[0],d[1],d[2],d[3],d[4],d[5],d[6],d[7]], 1)
-        p2 = np.random.multinomial(n, [d2[0],d2[1],d2[2],d2[3],d2[4],d2[5],d2[6],d2[7]], 1)
+        p2 = np.random.multinomial(n,[d2[0],d2[1],d2[2],d2[3],d2[4],d2[5],d2[6],d2[7]], 1)
         t = np.sum(p[0][0]+p[0][1]+p[0][2]+p[0][3])
         t2 = np.sum(p2[0][0]+p2[0][1]+p2[0][2]+p2[0][3])
         return  4*t/n+4*t2/n-4
