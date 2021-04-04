@@ -17,3 +17,5 @@ def C_Gate(U, q): # U - numpy array; n - number of qibits
         for n in range(int(d/2),d):
             C[n][m] = U[n-int(d/2)][m-int(d/2)]
     return C
+
+

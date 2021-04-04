@@ -8,6 +8,7 @@ from qiskit.extensions import RXGate, RZGate, RYGate, HGate, XGate, IGate, CXGat
 import numpy as np
 from computings import C_Gate
 ####################################################################################
+
 I = IGate().to_matrix();
 X = XGate().to_matrix();
 Y = YGate().to_matrix();
@@ -16,7 +17,7 @@ CX = np.array([[1,0,0,0],[0,1,0,0],[0,0,0,1],[0,0,1,0]]);
 state_zero = np.array([[1.0], [0.0]]);
 
 psi0 = np.kron(np.kron(state_zero,state_zero),state_zero) # |000>
-psi1 = np.kron(HGate().to_matrix(),np.kron(I,I))                   # |H00> H - hadamard Gate
+psi1 = np.kron(HGate().to_matrix(),np.kron(I,I))          # |H00> H - hadamard Gate
 
 
 ####################################################################################
@@ -50,23 +51,22 @@ def d_U(phi, delta,i): # derivative of U_operator  i - circuit B (B1 or B2)
 
 def U_circuit(phi, N,i): # N = derivative angle number   i - circuit B (B1 or B2) 
     u = {1: U(phi[0],pi/2), 2: U(phi[1],pi), 3: U(phi[2],pi/2), 4: U(phi[3],pi), 5: U(phi[4],pi/2), 6: U(phi[5],pi)}
-    du = d_U(phi[N-1],pi*(0.5 + 0.5*((N+1)%2)),i)
     if N==0:
         u[N+1] = u[N+1]
     else:
-        u[N] = du 
+        u[N] = d_U(phi[N-1],pi*(0.5 + 0.5*((N+1)%2)),i)
     return  np.kron(u[4]@u[3],u[6]@u[5])@CX@np.kron(u[2]@u[1],X)
 
 
 def B(phi,N,k,i): # i - circuit B (B1 or B2) 
     return (U_circuit(phi,0,i).conjugate().transpose())@schwinger_matrix(k)@U_circuit(phi,N,i)
 
-def hadamard(phi,N,k,n): 
+def hadamard(phi,N,k,n):
     cir = psi1@C_Gate(B(phi,N,k,1),3)@psi1@psi0
     cir2  = psi1@C_Gate(B(phi,N,k,2),3)@psi1@psi0
     if type(n) == str:
-        t = np.sum((np.abs(cir)**2)[:4])
-        t2 = np.sum((np.abs(cir2)**2)[:4])
+        t = np.sum((np.abs(cir)**2)[0:4])
+        t2 = np.sum((np.abs(cir2)**2)[0:4])
         return 4*t+4*t2-4
     else:
         d = {
@@ -96,10 +96,8 @@ def hadamard(phi,N,k,n):
         return  4*t/n+4*t2/n-4
 
 
+
 def hadamard_test(phi,N,m,n): #1+XX+YY+0.5(-ZI+ZZ+mIZ-mZI)
     return hadamard(phi,N,1,n)+hadamard(phi,N,2,n)+hadamard(phi,N,3,n)+0.5*hadamard(phi,N,4,n)-0.5*hadamard(phi,N,5,n)+0.5*m*hadamard(phi,N,6,n)-0.5*m*hadamard(phi,N,5,n)
-
-
-
 
 

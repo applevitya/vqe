@@ -49,23 +49,23 @@ x0 = np.random.uniform(0, 2 * pi, 6)
 def optimization(x0):
     points = []
     m = 0
-    n1 = 1000 
+    n1 = "1000000"
     def callback_func(x):
-        points.append(energy_schwinger(x,m,'100000'))
+        points.append(energy_schwinger(x,m,100000))
         return False
 
     def target_func(x):
-        return energy_schwinger(x,m,'100000')
+        return energy_schwinger(x,m,10000)
 
     def gradients(x0):
         der = np.zeros_like(x0)
         for i in range(0, len(x0)):
             j = i + 1
-            der[i] = hadamard_test(x0,j,m,'n1')
+            der[i] = hadamard_test(x0,j,m,n1)
         return der
 
 
-    result = minimize(target_func, x0=x0, callback=callback_func, method="SLSQP",jac = gradients,options={'disp':True, 'maxiter': 200, 'eps': 0, "ftol":0})
+    result = minimize(target_func, x0=x0, callback=callback_func, method="SLSQP",jac = gradients,options={'disp':True, 'maxiter': 400, 'eps': 0, "ftol":0})
 
 
 optimization(x0)
