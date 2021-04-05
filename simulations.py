@@ -3,6 +3,7 @@ from math import *
 from qiskit.extensions import RXGate, RZGate, RYGate, HGate, XGate, IGate, CXGate, YGate, ZGate, CCXGate
 from gradients import hadamard_test,U_circuit,schwinger_matrix
 from scipy.optimize import minimize
+from spsa import minimize_spsa
 ########################################################
 
 state_zero = np.array([[1.0], [0.0]]);
@@ -40,33 +41,47 @@ def energy_schwinger(phi,m,n):
         return (II+XX+YY+0.5*(ZZ-ZI + m*IZ - m*ZI))/n #1+XX+YY+0.5(-ZI+ZZ+mIZ-mZI)
 
 
-
-
 ############# OPTIMIZATION ####################################
 
-x0 = np.random.uniform(0, 2 * pi, 6)
-
-def optimization(x0):
+def optimization(x0,stat,method):
     points = []
     m = 0
-    n1 = "1000000"
+    n = stat[0]
+    n1 = stat[1]
     def callback_func(x):
-        points.append(energy_schwinger(x,m,100000))
+        points.append(energy_schwinger(x,m,n))
         return False
 
     def target_func(x):
-        return energy_schwinger(x,m,10000)
+        return energy_schwinger(x,m,n)
 
-    def gradients(x0):
+    def gradient(x0):
         der = np.zeros_like(x0)
         for i in range(0, len(x0)):
             j = i + 1
             der[i] = hadamard_test(x0,j,m,n1)
         return der
 
+    def gradient_slsqp(x0):
+        r = 3 / 2
+        der = np.zeros_like(x0)
+        x = np.copy(x0)
+        for i in range(len(x0)):
+            x[i] = x0[i] + pi / (4 * r)
+            der[i] = r * target_func(x)
+            x[i] = x0[i] - pi / (4 * r)
+            der[i] -= r * target_func(x)
+            x[i] = x0[i]
+        return der
 
-    result = minimize(target_func, x0=x0, callback=callback_func, method="SLSQP",jac = gradients,options={'disp':True, 'maxiter': 400, 'eps': 0, "ftol":0})
+    result = minimize(target_func, x0=x0, callback=callback_func, method=method,jac = gradient,options={'disp':True, 'maxiter': 400, 'eps': 0, "gtol":0})
+    #result = minimize_spsa(target_func, callback=callback_func, x0=x0, maxiter=300,a0=0.01, af=0.01, b0=0.1, bf=0.02)
+    print(result.nfev)
+    return target_func(result.x)
+###########################################################################################################################
 
 
-optimization(x0)
+
+x0 = np.random.uniform(0, 2 * pi, 6)
+print(optimization(x0=x0, stat=[1000,1000],method="BFGS"))
 

@@ -17,7 +17,7 @@ CX = np.array([[1,0,0,0],[0,1,0,0],[0,0,0,1],[0,0,1,0]]);
 state_zero = np.array([[1.0], [0.0]]);
 
 psi0 = np.kron(np.kron(state_zero,state_zero),state_zero) # |000>
-psi1 = np.kron(HGate().to_matrix(),np.kron(I,I))          # |H00> H - hadamard Gate
+psi1 = np.kron(HGate().to_matrix(),np.kron(I,I))          # HII H - hadamard Gate
 
 
 ####################################################################################
@@ -46,16 +46,17 @@ def d_U(phi, delta,i): # derivative of U_operator  i - circuit B (B1 or B2)
     Z = RZGate(delta).to_matrix()
     return {
         i == 1: RYGate(2 * phi + pi).to_matrix()@Z.conjugate()@Y.transpose(),
-        i == 2: Y@Z.conjugate()@RYGate(-2*phi+pi).to_matrix()
+        i == 2: -Y@Z.conjugate()@RYGate(-2*phi+pi).to_matrix()
     }[True] 
 
 def U_circuit(phi, N,i): # N = derivative angle number   i - circuit B (B1 or B2) 
     u = {1: U(phi[0],pi/2), 2: U(phi[1],pi), 3: U(phi[2],pi/2), 4: U(phi[3],pi), 5: U(phi[4],pi/2), 6: U(phi[5],pi)}
     if N==0:
-        u[N+1] = u[N+1]
+        pass
     else:
         u[N] = d_U(phi[N-1],pi*(0.5 + 0.5*((N+1)%2)),i)
     return  np.kron(u[4]@u[3],u[6]@u[5])@CX@np.kron(u[2]@u[1],X)
+
 
 
 def B(phi,N,k,i): # i - circuit B (B1 or B2) 
@@ -69,35 +70,15 @@ def hadamard(phi,N,k,n):
         t2 = np.sum((np.abs(cir2)**2)[0:4])
         return 4*t+4*t2-4
     else:
-        d = {
-            0:np.abs(cir[0][0])**2,
-            1:np.abs(cir[1][0])**2,
-            2:np.abs(cir[2][0])**2,
-            3:np.abs(cir[3][0])**2,
-            4:np.abs(cir[4][0])**2,
-            5:np.abs(cir[5][0])**2,
-            6:np.abs(cir[6][0])**2,
-            7:np.abs(cir[7][0])**2
-        }
-        d2 = {
-            0:np.abs(cir2[0][0])**2,
-            1:np.abs(cir2[1][0])**2,
-            2:np.abs(cir2[2][0])**2,
-            3:np.abs(cir2[3][0])**2,
-            4:np.abs(cir2[4][0])**2,
-            5:np.abs(cir2[5][0])**2,
-            6:np.abs(cir2[6][0])**2,
-            7:np.abs(cir2[7][0])**2
-        }
-        p = np.random.multinomial(n, [d[0],d[1],d[2],d[3],d[4],d[5],d[6],d[7]], 1)
-        p2 = np.random.multinomial(n,[d2[0],d2[1],d2[2],d2[3],d2[4],d2[5],d2[6],d2[7]], 1)
-        t = np.sum(p[0][0]+p[0][1]+p[0][2]+p[0][3])
-        t2 = np.sum(p2[0][0]+p2[0][1]+p2[0][2]+p2[0][3])
-        return  4*t/n+4*t2/n-4
+        d = [np.abs(amp[0])**2 for amp in cir]
+        d2 = [np.abs(amp[0])**2 for amp in cir2]
+        counts = np.random.multinomial(n, d)
+        counts2 = np.random.multinomial(n,d2)
+        t = np.sum(counts[0:4])/n   # вероятность найти 1 кубит в |0>
+        t2 = np.sum(counts2[0:4])/n
+        return  4*t+4*t2-4
 
 
 
-def hadamard_test(phi,N,m,n): #1+XX+YY+0.5(-ZI+ZZ+mIZ-mZI)
+def hadamard_test(phi,N,m,n): #II+XX+YY+0.5(-ZI+ZZ+mIZ-mZI)
     return hadamard(phi,N,1,n)+hadamard(phi,N,2,n)+hadamard(phi,N,3,n)+0.5*hadamard(phi,N,4,n)-0.5*hadamard(phi,N,5,n)+0.5*m*hadamard(phi,N,6,n)-0.5*m*hadamard(phi,N,5,n)
-
-

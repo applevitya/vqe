@@ -19,3 +19,4 @@ def C_Gate(U, q): # U - numpy array; n - number of qibits
     return C
 
 
+
