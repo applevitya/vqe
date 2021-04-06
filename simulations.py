@@ -1,4 +1,6 @@
+from sys import stdout
 import numpy as np
+import logging
 from math import *
 from qiskit.extensions import RXGate, RZGate, RYGate, HGate, XGate, IGate, CXGate, YGate, ZGate, CCXGate
 from gradients import hadamard_test,U_circuit,schwinger_matrix
@@ -7,6 +9,14 @@ from spsa import minimize_spsa
 ########################################################
 
 state_zero = np.array([[1.0], [0.0]]);
+
+def log_header(logfile):
+    logfile.write('energy_value \t'+'func eval \t' + 'grad eval \n')
+    logfile.flush()
+
+def log_data(logfile, x, y, z):
+    logfile.write(str(x)+'\t'+str(y)+'\t'+ str(z)+'\n')
+    logfile.flush()    
 
 ######################################################
 def energy_schwinger(phi,m,n):
@@ -39,6 +49,9 @@ def energy_schwinger(phi,m,n):
         ZI = p_HV[0][0] + p_HV[0][1] - p_HV[0][2] - p_HV[0][3]
 
         return (II+XX+YY+0.5*(ZZ-ZI + m*IZ - m*ZI))/n #1+XX+YY+0.5(-ZI+ZZ+mIZ-mZI)
+
+
+
 
 
 ############# OPTIMIZATION ####################################
@@ -74,14 +87,22 @@ def optimization(x0,stat,method):
             x[i] = x0[i]
         return der
 
-    result = minimize(target_func, x0=x0, callback=callback_func, method=method,jac = gradient,options={'disp':True, 'maxiter': 400, 'eps': 0, "gtol":0})
+    result = minimize(target_func, x0=x0, callback=callback_func, method=method,jac = gradient,options={'disp':False, 'eps': 0, "ftol":0})
     #result = minimize_spsa(target_func, callback=callback_func, x0=x0, maxiter=300,a0=0.01, af=0.01, b0=0.1, bf=0.02)
-    print(result.nfev)
-    return target_func(result.x)
+    log_data(stdout,result.fun,result.nfev,result.njev)
+
 ###########################################################################################################################
 
 
 
-x0 = np.random.uniform(0, 2 * pi, 6)
-print(optimization(x0=x0, stat=[1000,1000],method="BFGS"))
+
+log_header(stdout)
+for i in range(5):
+    x0 = np.random.uniform(0, 2 * pi, 6)
+    optimization(x0=x0, stat=['inf','inf'],method="SLSQP")
+
+
+
+
+
 
