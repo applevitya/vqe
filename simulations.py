@@ -87,19 +87,19 @@ def optimization(x0,stat,method):
             x[i] = x0[i]
         return der
 
-    result = minimize(target_func, x0=x0, callback=callback_func, method=method,jac = gradient,options={'disp':False, 'eps': 0, "ftol":0})
-    #result = minimize_spsa(target_func, callback=callback_func, x0=x0, maxiter=300,a0=0.01, af=0.01, b0=0.1, bf=0.02)
-    log_data(stdout,result.fun,result.nfev,result.njev)
+    #result = minimize(target_func, x0=x0, callback=callback_func, method=method,jac = gradient,options={'disp':False, 'eps': 0, "ftol":0})
+    result = minimize_spsa(target_func, callback=callback_func, x0=x0,a0=0.01, af=0.01, b0=0.1, bf=0.02)
+    log_data(stdout,result.fun,result.nfev,result.nit)
 
 ###########################################################################################################################
 
 
 
 
-log_header(stdout)
-for i in range(5):
+#log_header(stdout)
+for i in range(1):
     x0 = np.random.uniform(0, 2 * pi, 6)
-    optimization(x0=x0, stat=['inf','inf'],method="SLSQP")
+    optimization(x0=x0, stat=['inf','inf'],method="SPSA")
 
 
 
