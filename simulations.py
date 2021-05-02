@@ -4,8 +4,10 @@ import logging
 from math import *
 from qiskit.extensions import RXGate, RZGate, RYGate, HGate, XGate, IGate, CXGate, YGate, ZGate, CCXGate
 from gradients import hadamard_test,U_circuit,schwinger_matrix
+import scipy.optimize
 from scipy.optimize import minimize
 from spsa import minimize_spsa
+from climin import Bfgs
 ########################################################
 
 state_zero = np.array([[1.0], [0.0]]);
@@ -87,9 +89,12 @@ def optimization(x0,stat,method):
             x[i] = x0[i]
         return der
 
-    result = minimize(target_func, x0=x0, callback=callback_func, method=method,jac = gradient,options={'disp':True, 'maxiter':50, 'eps': 0, "ftol":0})
+    #result = minimize(target_func, x0=x0, callback=callback_func, method=method,jac = gradient,options={'disp':False, 'maxiter':50, 'eps': 0, "ftol":0})
     #result = minimize_spsa(target_func, callback=callback_func, x0=x0,a0= 0.05, af = 0.005, b0=0.1, bf=0.002)
-    log_data(stdout,result.fun,result.nfev,result.nit)
+    result = scipy.optimize.fmin_bfgs(f = target_func, x0=x0, fprime= gradient, epsilon= 0, gtol= 10e-17, norm= -inf, full_output=True, disp= True, callback= callback_func)
+    #result = Bfgs(wrt= x0, f = target_func, fprime= gradient)
+    return print(result)
+    #log_data(stdout,result.fun,result.nfev,result.nit)
 
 ###########################################################################################################################
 
@@ -99,7 +104,7 @@ def optimization(x0,stat,method):
 log_header(stdout)
 for i in range(1):
     x0 = np.random.uniform(0, 2 * pi, 6)
-    optimization(x0=x0, stat=['inf','inf'],method="SLSQP")
+    optimization(x0=x0, stat=[10000,10000],method="SLSQP")
 
 
 
