@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd4eead3-1c91-46a6-8075-4ec9c7fd1c90" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bfgs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vqe.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vqe.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adam.py" beforeDir="false" afterPath="$PROJECT_DIR$/adam.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/simulations.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulations.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +34,29 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.simulations">
+  <component name="RunManager" selected="Python.adam">
+    <configuration name="adam" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="vqe" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/local/bin/python3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/adam.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="bfgs" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="vqe" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -127,6 +147,7 @@
     </configuration>
     <list>
       <item itemvalue="Python.simulations" />
+      <item itemvalue="Python.adam" />
       <item itemvalue="Python.bfgs" />
       <item itemvalue="Python.gradients" />
       <item itemvalue="Python.computings" />
@@ -158,7 +179,7 @@
       <workItem from="1619624730385" duration="205000" />
       <workItem from="1619713273750" duration="221000" />
       <workItem from="1619765259566" duration="620000" />
-      <workItem from="1619954403780" duration="387000" />
+      <workItem from="1619954403780" duration="12330000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1617482233610</created>
@@ -192,10 +213,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="new" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="744" y="348" width="1071" height="778" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1619453060219">
-      <screen x="0" y="25" width="2560" height="1328" />
+    <state x="744" y="348" width="1071" height="804" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1619955066484">
+      <screen x="0" y="25" width="2560" height="1330" />
     </state>
     <state x="744" y="348" width="1071" height="778" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.2560.1328@0.25.2560.1328" timestamp="1619453060219" />
+    <state x="744" y="348" width="1071" height="804" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.2560.1330@0.25.2560.1330" timestamp="1619955066484" />
     <state x="864" y="262" key="CommitChangelistDialog2" timestamp="1617649195839">
       <screen x="0" y="25" width="2560" height="1331" />
     </state>
@@ -205,57 +227,61 @@
       <screen x="0" y="25" width="2560" height="1328" />
     </state>
     <state x="100" y="125" width="2360" height="1128" key="DiffContextDialog/0.25.2560.1328@0.25.2560.1328" timestamp="1617482142628" />
-    <state width="2518" height="377" key="GridCell.Tab.0.bottom" timestamp="1619805335851">
-      <screen x="0" y="25" width="2560" height="1328" />
+    <state width="2518" height="363" key="GridCell.Tab.0.bottom" timestamp="1619986989217">
+      <screen x="0" y="25" width="2560" height="1330" />
     </state>
     <state width="1638" height="248" key="GridCell.Tab.0.bottom/0.25.1680.959@0.25.1680.959" timestamp="1617826186910" />
-    <state width="2518" height="377" key="GridCell.Tab.0.bottom/0.25.2560.1328@0.25.2560.1328" timestamp="1619805335851" />
-    <state width="2518" height="377" key="GridCell.Tab.0.bottom/0.25.2560.1330@0.25.2560.1330" timestamp="1619463673449" />
+    <state width="2518" height="377" key="GridCell.Tab.0.bottom/0.25.2560.1328@0.25.2560.1328" timestamp="1619954826825" />
+    <state width="2518" height="363" key="GridCell.Tab.0.bottom/0.25.2560.1330@0.25.2560.1330" timestamp="1619986989217" />
     <state width="2518" height="377" key="GridCell.Tab.0.bottom/0.25.2560.1331@0.25.2560.1331" timestamp="1617649187019" />
     <state width="2518" height="377" key="GridCell.Tab.0.bottom/0.25.2560.1333@0.25.2560.1333" timestamp="1617648404873" />
-    <state width="2518" height="377" key="GridCell.Tab.0.center" timestamp="1619805335850">
-      <screen x="0" y="25" width="2560" height="1328" />
+    <state width="2518" height="363" key="GridCell.Tab.0.center" timestamp="1619986989216">
+      <screen x="0" y="25" width="2560" height="1330" />
     </state>
     <state width="1638" height="248" key="GridCell.Tab.0.center/0.25.1680.959@0.25.1680.959" timestamp="1617826186909" />
-    <state width="2518" height="377" key="GridCell.Tab.0.center/0.25.2560.1328@0.25.2560.1328" timestamp="1619805335850" />
-    <state width="2518" height="377" key="GridCell.Tab.0.center/0.25.2560.1330@0.25.2560.1330" timestamp="1619463673448" />
+    <state width="2518" height="377" key="GridCell.Tab.0.center/0.25.2560.1328@0.25.2560.1328" timestamp="1619954826824" />
+    <state width="2518" height="363" key="GridCell.Tab.0.center/0.25.2560.1330@0.25.2560.1330" timestamp="1619986989216" />
     <state width="2518" height="377" key="GridCell.Tab.0.center/0.25.2560.1331@0.25.2560.1331" timestamp="1617649187018" />
     <state width="2518" height="377" key="GridCell.Tab.0.center/0.25.2560.1333@0.25.2560.1333" timestamp="1617648404872" />
-    <state width="2518" height="377" key="GridCell.Tab.0.left" timestamp="1619805335847">
-      <screen x="0" y="25" width="2560" height="1328" />
+    <state width="2518" height="363" key="GridCell.Tab.0.left" timestamp="1619986989216">
+      <screen x="0" y="25" width="2560" height="1330" />
     </state>
     <state width="1638" height="248" key="GridCell.Tab.0.left/0.25.1680.959@0.25.1680.959" timestamp="1617826186908" />
-    <state width="2518" height="377" key="GridCell.Tab.0.left/0.25.2560.1328@0.25.2560.1328" timestamp="1619805335847" />
-    <state width="2518" height="377" key="GridCell.Tab.0.left/0.25.2560.1330@0.25.2560.1330" timestamp="1619463673448" />
+    <state width="2518" height="377" key="GridCell.Tab.0.left/0.25.2560.1328@0.25.2560.1328" timestamp="1619954826824" />
+    <state width="2518" height="363" key="GridCell.Tab.0.left/0.25.2560.1330@0.25.2560.1330" timestamp="1619986989216" />
     <state width="2518" height="377" key="GridCell.Tab.0.left/0.25.2560.1331@0.25.2560.1331" timestamp="1617649187018" />
     <state width="2518" height="377" key="GridCell.Tab.0.left/0.25.2560.1333@0.25.2560.1333" timestamp="1617648404871" />
-    <state width="2518" height="377" key="GridCell.Tab.0.right" timestamp="1619805335850">
-      <screen x="0" y="25" width="2560" height="1328" />
+    <state width="2518" height="363" key="GridCell.Tab.0.right" timestamp="1619986989217">
+      <screen x="0" y="25" width="2560" height="1330" />
     </state>
     <state width="1638" height="248" key="GridCell.Tab.0.right/0.25.1680.959@0.25.1680.959" timestamp="1617826186909" />
-    <state width="2518" height="377" key="GridCell.Tab.0.right/0.25.2560.1328@0.25.2560.1328" timestamp="1619805335850" />
-    <state width="2518" height="377" key="GridCell.Tab.0.right/0.25.2560.1330@0.25.2560.1330" timestamp="1619463673449" />
+    <state width="2518" height="377" key="GridCell.Tab.0.right/0.25.2560.1328@0.25.2560.1328" timestamp="1619954826825" />
+    <state width="2518" height="363" key="GridCell.Tab.0.right/0.25.2560.1330@0.25.2560.1330" timestamp="1619986989217" />
     <state width="2518" height="377" key="GridCell.Tab.0.right/0.25.2560.1331@0.25.2560.1331" timestamp="1617649187019" />
     <state width="2518" height="377" key="GridCell.Tab.0.right/0.25.2560.1333@0.25.2560.1333" timestamp="1617648404872" />
-    <state width="2518" height="464" key="GridCell.Tab.1.bottom" timestamp="1619466063831">
-      <screen x="0" y="25" width="2560" height="1328" />
+    <state width="2518" height="464" key="GridCell.Tab.1.bottom" timestamp="1619980406327">
+      <screen x="0" y="25" width="2560" height="1330" />
     </state>
     <state width="2518" height="464" key="GridCell.Tab.1.bottom/0.25.2560.1328@0.25.2560.1328" timestamp="1619466063831" />
+    <state width="2518" height="464" key="GridCell.Tab.1.bottom/0.25.2560.1330@0.25.2560.1330" timestamp="1619980406327" />
     <state width="2518" height="464" key="GridCell.Tab.1.bottom/0.25.2560.1331@0.25.2560.1331" timestamp="1617649075475" />
-    <state width="2518" height="464" key="GridCell.Tab.1.center" timestamp="1619466063830">
-      <screen x="0" y="25" width="2560" height="1328" />
+    <state width="2518" height="464" key="GridCell.Tab.1.center" timestamp="1619980406327">
+      <screen x="0" y="25" width="2560" height="1330" />
     </state>
     <state width="2518" height="464" key="GridCell.Tab.1.center/0.25.2560.1328@0.25.2560.1328" timestamp="1619466063830" />
+    <state width="2518" height="464" key="GridCell.Tab.1.center/0.25.2560.1330@0.25.2560.1330" timestamp="1619980406327" />
     <state width="2518" height="464" key="GridCell.Tab.1.center/0.25.2560.1331@0.25.2560.1331" timestamp="1617649075475" />
-    <state width="2518" height="464" key="GridCell.Tab.1.left" timestamp="1619466063830">
-      <screen x="0" y="25" width="2560" height="1328" />
+    <state width="2518" height="464" key="GridCell.Tab.1.left" timestamp="1619980406327">
+      <screen x="0" y="25" width="2560" height="1330" />
     </state>
     <state width="2518" height="464" key="GridCell.Tab.1.left/0.25.2560.1328@0.25.2560.1328" timestamp="1619466063830" />
+    <state width="2518" height="464" key="GridCell.Tab.1.left/0.25.2560.1330@0.25.2560.1330" timestamp="1619980406327" />
     <state width="2518" height="464" key="GridCell.Tab.1.left/0.25.2560.1331@0.25.2560.1331" timestamp="1617649075474" />
-    <state width="2518" height="464" key="GridCell.Tab.1.right" timestamp="1619466063831">
-      <screen x="0" y="25" width="2560" height="1328" />
+    <state width="2518" height="464" key="GridCell.Tab.1.right" timestamp="1619980406327">
+      <screen x="0" y="25" width="2560" height="1330" />
     </state>
     <state width="2518" height="464" key="GridCell.Tab.1.right/0.25.2560.1328@0.25.2560.1328" timestamp="1619466063831" />
+    <state width="2518" height="464" key="GridCell.Tab.1.right/0.25.2560.1330@0.25.2560.1330" timestamp="1619980406327" />
     <state width="2518" height="464" key="GridCell.Tab.1.right/0.25.2560.1331@0.25.2560.1331" timestamp="1617649075475" />
     <state x="786" y="325" key="SettingsEditor" timestamp="1619446904424">
       <screen x="0" y="25" width="2560" height="1328" />
@@ -275,6 +301,7 @@
     <SUITE FILE_PATH="coverage/vqe$gradients.coverage" NAME="gradients Coverage Results" MODIFIED="1617643458425" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/vqe$bfgs.coverage" NAME="bfgs Coverage Results" MODIFIED="1619453417838" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/vqe$computings.coverage" NAME="computings Coverage Results" MODIFIED="1617647369759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/vqe$simulations.coverage" NAME="simulations Coverage Results" MODIFIED="1619954453253" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/vqe$simulations.coverage" NAME="simulations Coverage Results" MODIFIED="1619954826799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/vqe$adam.coverage" NAME="adam Coverage Results" MODIFIED="1619986989210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
