@@ -36,30 +36,30 @@ def schwinger_matrix(k):
 
 #@qml.qnode(dev, interface='tf')
 def my_sheme(phi,wires):
-    qml.RY(2*phi[0],wires=0)
-    qml.RZ(pi/2,wires = 0)
+    qml.RY(2*phi[0],wires=0).adjoint()
+    qml.RZ(pi/2,wires = 0).adjoint()
     qml.RY(2 * phi[0],wires= 0)
     qml.PauliX(wires = 1)
 
-    qml.RY(2 * phi[1],wires= 0)
-    qml.RZ(pi,wires = 0)
+    qml.RY(2 * phi[1],wires= 0).adjoint()
+    qml.RZ(pi,wires = 0).adjoint()
     qml.RY(2 * phi[1],wires= 0)
     qml.CNOT(wires=[0,1])
 
-    qml.RY(2 * phi[2],wires=0)
-    qml.RZ(pi/2,wires= 0)
+    qml.RY(2 * phi[2],wires=0).adjoint()
+    qml.RZ(pi/2,wires= 0).adjoint()
     qml.RY(2 * phi[2],wires= 0 )
 
-    qml.RY(2 * phi[4],wires=1)
-    qml.RZ(pi/2,wires=1)
+    qml.RY(2 * phi[4],wires=1).adjoint()
+    qml.RZ(pi/2,wires=1).adjoint()
     qml.RY(2 * phi[4],wires=1)
 
-    qml.RY(2 * phi[3],wires=0)
-    qml.RZ(pi,wires=0)
+    qml.RY(2 * phi[3],wires=0).adjoint()
+    qml.RZ(pi,wires=0).adjoint()
     qml.RY(2 * phi[3],wires=0)
 
-    qml.RY(2 * phi[5],wires=1)
-    qml.RZ(pi,wires = 1)
+    qml.RY(2 * phi[5],wires=1).adjoint()
+    qml.RZ(pi,wires = 1).adjoint()
     qml.RY(2 * phi[5],wires=1)
 
     #return qml.state()#qml.expval(qml.PauliZ(0))
@@ -74,14 +74,14 @@ H = qml.Hamiltonian((1.0,), (obs,))
 cost = qml.ExpvalCost(my_sheme, H, dev,interface="tf")
 
 
-phi = tf.Variable([1,1,1,1,1,1])
+phi = tf.Variable([0.0,0.0,0.0,0.0,0.0,0.0])
 print(cost(phi))
 
 loss_fn = lambda: cost(phi)
 
 
-losses = tfp.math.minimize(cost,trainable_variables=[phi],
-                           num_steps=100,
-                           optimizer=tf.optimizers.Adam(learning_rate=0.1))
+losses = tfp.math.minimize(loss_fn,trainable_variables=[phi],
+                           num_steps=40,
+                           optimizer=tf.optimizers.Adam(learning_rate=0.01))
 
-print(losses)
+print(losses.numpy())
