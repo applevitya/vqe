@@ -106,6 +106,7 @@ for i in range(1):
     x0 = np.random.uniform(0, 2 * pi, 6)
     #optimization(x0=x0, stat=[10000,10000],method="SLSQP")
 
+print(energy_schwinger([1,1,1,1,1,1],0,'d'))
 
 
 

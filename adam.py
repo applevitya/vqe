@@ -3,6 +3,7 @@ import pennylane as qml
 import numpy as np
 from math import *
 import tensorflow as tf
+import tensorflow_probability as tfp
 import os
 import torch
 from qiskit.extensions import RXGate, RZGate, RYGate, HGate, XGate, IGate, CXGate, YGate, ZGate, CCXGate
@@ -70,6 +71,17 @@ H = qml.Hamiltonian((1.0,), (obs,))
 
 
 
-cost = qml.ExpvalCost(my_sheme, H, dev,interface="torch")
-phi = torch.tensor([1,1,1,1,1,1])
+cost = qml.ExpvalCost(my_sheme, H, dev,interface="tf")
+
+
+phi = tf.Variable([1,1,1,1,1,1])
 print(cost(phi))
+
+loss_fn = lambda: cost(phi)
+
+
+losses = tfp.math.minimize(cost,trainable_variables=[phi],
+                           num_steps=100,
+                           optimizer=tf.optimizers.Adam(learning_rate=0.1))
+
+print(losses)
