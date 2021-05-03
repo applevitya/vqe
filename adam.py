@@ -4,7 +4,11 @@ import numpy as np
 from math import *
 import tensorflow as tf
 import os
+import torch
 from qiskit.extensions import RXGate, RZGate, RYGate, HGate, XGate, IGate, CXGate, YGate, ZGate, CCXGate
+
+
+
 
 I = IGate().to_matrix();
 X = XGate().to_matrix();
@@ -29,26 +33,43 @@ def schwinger_matrix(k):
         k == 6: np.kron(I,Z)   # IZ
     }[True]
 
-@qml.qnode(dev, interface='tf')
+#@qml.qnode(dev, interface='tf')
 def my_sheme(phi,wires):
-    qml.BasisState(np.array([1, 1, 0, 0]), wires=wires)
-    qml.QubitUnitary(U(phi[0],pi/2), wires = 0)
+    qml.RY(2*phi[0],wires=0)
+    qml.RZ(pi/2,wires = 0)
+    qml.RY(2 * phi[0],wires= 0)
     qml.PauliX(wires = 1)
-    qml.QubitUnitary(U(phi[1],pi),wires=0)
+
+    qml.RY(2 * phi[1],wires= 0)
+    qml.RZ(pi,wires = 0)
+    qml.RY(2 * phi[1],wires= 0)
     qml.CNOT(wires=[0,1])
-    qml.QubitUnitary(U(phi[2],pi/2),wires=0)
-    qml.QubitUnitary(U(phi[4],pi/2),wires=1)
-    qml.QubitUnitary(U(phi[3],pi),wires=0)
-    qml.QubitUnitary(U(phi[5],pi),wires=1)
+
+    qml.RY(2 * phi[2],wires=0)
+    qml.RZ(pi/2,wires= 0)
+    qml.RY(2 * phi[2],wires= 0 )
+
+    qml.RY(2 * phi[4],wires=1)
+    qml.RZ(pi/2,wires=1)
+    qml.RY(2 * phi[4],wires=1)
+
+    qml.RY(2 * phi[3],wires=0)
+    qml.RZ(pi,wires=0)
+    qml.RY(2 * phi[3],wires=0)
+
+    qml.RY(2 * phi[5],wires=1)
+    qml.RZ(pi,wires = 1)
+    qml.RY(2 * phi[5],wires=1)
+
     #return qml.state()#qml.expval(qml.PauliZ(0))
 
-#print(my_sheme([1,1,1,1,1,1]))
 
 schwinger = schwinger_matrix(1) + schwinger_matrix(2)+schwinger_matrix(3)+0.5*(-schwinger_matrix(5)+schwinger_matrix(4)+0*schwinger_matrix(6)-0*schwinger_matrix(5))
 obs = qml.Hermitian(schwinger, wires=[0, 1])
 H = qml.Hamiltonian((1.0,), (obs,))
 
-cost = qml.ExpvalCost(my_sheme, H, dev)
 
 
-print(cost)
+cost = qml.ExpvalCost(my_sheme, H, dev,interface="torch")
+phi = torch.tensor([1,1,1,1,1,1])
+print(cost(phi))
