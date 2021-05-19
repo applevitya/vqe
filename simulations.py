@@ -8,6 +8,7 @@ import scipy.optimize
 from scipy.optimize import minimize
 from spsa import minimize_spsa
 from climin import Bfgs
+from bfgs import fmin_bfgs
 ########################################################
 
 state_zero = np.array([[1.0], [0.0]]);
@@ -91,8 +92,9 @@ def optimization(x0,stat,method):
 
     #result = minimize(target_func, x0=x0, callback=callback_func, method=method,jac = gradient,options={'disp':False, 'maxiter':50, 'eps': 0, "ftol":0})
     #result = minimize_spsa(target_func, callback=callback_func, x0=x0,a0= 0.05, af = 0.005, b0=0.1, bf=0.002)
-    result = scipy.optimize.fmin_bfgs(f = target_func, x0=x0, fprime= gradient, epsilon= 0, gtol= 10e-17, norm= -inf, full_output=True, disp= True, callback= callback_func)
+    #result = scipy.optimize.fmin_bfgs(f = target_func,maxiter=30, x0=x0, fprime= gradient, epsilon= 0, gtol= 10e-17, norm= -inf, full_output=True, disp= True, callback= callback_func)
     #result = Bfgs(wrt= x0, f = target_func, fprime= gradient)
+    result = fmin_bfgs(f = target_func,maxiter=30, x0=x0, fprime= gradient, epsilon= 0, gtol= 10e-17, norm= -inf, full_output=True, disp= True, callback= callback_func)
     return print(result)
     #log_data(stdout,result.fun,result.nfev,result.nit)
 
@@ -104,9 +106,8 @@ def optimization(x0,stat,method):
 log_header(stdout)
 for i in range(1):
     x0 = np.random.uniform(0, 2 * pi, 6)
-    #optimization(x0=x0, stat=[10000,10000],method="SLSQP")
+    optimization(x0=x0, stat=[10000,10000],method="SLSQP")
 
-print(energy_schwinger([1,1,1,1,1,1],0,'d'))
 
 
 

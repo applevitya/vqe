@@ -9,8 +9,7 @@ import torch
 from qiskit.extensions import RXGate, RZGate, RYGate, HGate, XGate, IGate, CXGate, YGate, ZGate, CCXGate
 
 
-
-
+state_zero = np.array([[1.0], [0.0]]);
 I = IGate().to_matrix();
 X = XGate().to_matrix();
 Y = YGate().to_matrix();
@@ -66,6 +65,7 @@ def my_sheme(phi,wires):
 
 
 schwinger = schwinger_matrix(1) + schwinger_matrix(2)+schwinger_matrix(3)+0.5*(-schwinger_matrix(5)+schwinger_matrix(4)+0*schwinger_matrix(6)-0*schwinger_matrix(5))
+
 obs = qml.Hermitian(schwinger, wires=[0, 1])
 H = qml.Hamiltonian((1.0,), (obs,))
 
@@ -74,14 +74,16 @@ H = qml.Hamiltonian((1.0,), (obs,))
 cost = qml.ExpvalCost(my_sheme, H, dev,interface="tf")
 
 
-phi = tf.Variable([0.0,0.0,0.0,0.0,0.0,0.0])
+phi = tf.Variable([1.0,1.0,0.0,0.0,0.0,0.0])
 print(cost(phi))
 
 loss_fn = lambda: cost(phi)
 
 
 losses = tfp.math.minimize(loss_fn,trainable_variables=[phi],
-                           num_steps=40,
-                           optimizer=tf.optimizers.Adam(learning_rate=0.01))
+                           num_steps=60,
+                           optimizer=tf.optimizers.Adam(learning_rate=0.1))
 
 print(losses.numpy())
+
+
