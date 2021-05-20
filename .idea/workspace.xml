@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd4eead3-1c91-46a6-8075-4ec9c7fd1c90" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vqe.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vqe.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adam.py" beforeDir="false" afterPath="$PROJECT_DIR$/adam.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bfgs.py" beforeDir="false" afterPath="$PROJECT_DIR$/bfgs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulations.py" beforeDir="false" afterPath="$PROJECT_DIR$/simulations.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="JupyterTrust" id="45f91f11-e402-4d2d-b4e0-bf74364377d2" />
+  <component name="JupyterTrust" id="ac265785-e9fc-477d-9e80-496c0eb1ef89" />
   <component name="ProjectId" id="1qfo9uOKsPCiYtnYsTyolhdg8eA" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -35,7 +36,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.simulations">
+  <component name="RunManager" selected="Python.adam">
     <configuration name="adam" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="vqe" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -177,7 +178,7 @@
       <item itemvalue="Python.computings" />
     </list>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -208,6 +209,7 @@
       <workItem from="1620047931615" duration="5288000" />
       <workItem from="1620074429130" duration="670000" />
       <workItem from="1620143518855" duration="9118000" />
+      <workItem from="1621443321290" duration="3913000" />
     </task>
     <task id="LOCAL-00001" summary="new">
       <created>1617482233610</created>
@@ -234,16 +236,17 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new" />
     <option name="LAST_COMMIT_MESSAGE" value="new" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="744" y="348" width="1071" height="802" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1620148499037">
-      <screen x="0" y="25" width="2560" height="1330" />
+    <state x="488" y="257" width="1071" height="802" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1621443346828">
+      <screen x="0" y="25" width="1680" height="956" />
     </state>
+    <state x="488" y="257" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1680.956@0.25.1680.956" timestamp="1621443346828" />
     <state x="744" y="348" width="1071" height="802" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.2560.1328@0.25.2560.1328" timestamp="1620146093715" />
     <state x="744" y="348" width="1071" height="804" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.2560.1330@0.25.2560.1330" timestamp="1620148499037" />
     <state x="864" y="262" key="CommitChangelistDialog2" timestamp="1617649195839">
@@ -255,65 +258,79 @@
       <screen x="0" y="25" width="2560" height="1328" />
     </state>
     <state x="100" y="125" width="2360" height="1128" key="DiffContextDialog/0.25.2560.1328@0.25.2560.1328" timestamp="1617482142628" />
-    <state width="2518" height="380" key="GridCell.Tab.0.bottom" timestamp="1620159693443">
-      <screen x="0" y="25" width="2560" height="1328" />
+    <state width="1638" height="247" key="GridCell.Tab.0.bottom" timestamp="1621446870234">
+      <screen x="0" y="25" width="1680" height="958" />
     </state>
+    <state width="1638" height="247" key="GridCell.Tab.0.bottom/0.25.1680.956@0.25.1680.956" timestamp="1621444245566" />
+    <state width="1638" height="247" key="GridCell.Tab.0.bottom/0.25.1680.958@0.25.1680.958" timestamp="1621446870234" />
     <state width="1638" height="248" key="GridCell.Tab.0.bottom/0.25.1680.959@0.25.1680.959" timestamp="1617826186910" />
     <state width="2518" height="380" key="GridCell.Tab.0.bottom/0.25.2560.1328@0.25.2560.1328" timestamp="1620159693443" />
     <state width="2518" height="380" key="GridCell.Tab.0.bottom/0.25.2560.1330@0.25.2560.1330" timestamp="1620159613330" />
     <state width="2518" height="380" key="GridCell.Tab.0.bottom/0.25.2560.1331@0.25.2560.1331" timestamp="1620155704338" />
     <state width="2518" height="377" key="GridCell.Tab.0.bottom/0.25.2560.1333@0.25.2560.1333" timestamp="1617648404873" />
-    <state width="2518" height="380" key="GridCell.Tab.0.center" timestamp="1620159693443">
-      <screen x="0" y="25" width="2560" height="1328" />
+    <state width="1638" height="247" key="GridCell.Tab.0.center" timestamp="1621446870233">
+      <screen x="0" y="25" width="1680" height="958" />
     </state>
+    <state width="1638" height="247" key="GridCell.Tab.0.center/0.25.1680.956@0.25.1680.956" timestamp="1621444245565" />
+    <state width="1638" height="247" key="GridCell.Tab.0.center/0.25.1680.958@0.25.1680.958" timestamp="1621446870233" />
     <state width="1638" height="248" key="GridCell.Tab.0.center/0.25.1680.959@0.25.1680.959" timestamp="1617826186909" />
     <state width="2518" height="380" key="GridCell.Tab.0.center/0.25.2560.1328@0.25.2560.1328" timestamp="1620159693443" />
     <state width="2518" height="380" key="GridCell.Tab.0.center/0.25.2560.1330@0.25.2560.1330" timestamp="1620159613329" />
     <state width="2518" height="380" key="GridCell.Tab.0.center/0.25.2560.1331@0.25.2560.1331" timestamp="1620155704337" />
     <state width="2518" height="377" key="GridCell.Tab.0.center/0.25.2560.1333@0.25.2560.1333" timestamp="1617648404872" />
-    <state width="2518" height="380" key="GridCell.Tab.0.left" timestamp="1620159693442">
-      <screen x="0" y="25" width="2560" height="1328" />
+    <state width="1638" height="247" key="GridCell.Tab.0.left" timestamp="1621446870233">
+      <screen x="0" y="25" width="1680" height="958" />
     </state>
+    <state width="1638" height="247" key="GridCell.Tab.0.left/0.25.1680.956@0.25.1680.956" timestamp="1621444245564" />
+    <state width="1638" height="247" key="GridCell.Tab.0.left/0.25.1680.958@0.25.1680.958" timestamp="1621446870233" />
     <state width="1638" height="248" key="GridCell.Tab.0.left/0.25.1680.959@0.25.1680.959" timestamp="1617826186908" />
     <state width="2518" height="380" key="GridCell.Tab.0.left/0.25.2560.1328@0.25.2560.1328" timestamp="1620159693442" />
     <state width="2518" height="380" key="GridCell.Tab.0.left/0.25.2560.1330@0.25.2560.1330" timestamp="1620159613328" />
     <state width="2518" height="380" key="GridCell.Tab.0.left/0.25.2560.1331@0.25.2560.1331" timestamp="1620155704337" />
     <state width="2518" height="377" key="GridCell.Tab.0.left/0.25.2560.1333@0.25.2560.1333" timestamp="1617648404871" />
-    <state width="2518" height="380" key="GridCell.Tab.0.right" timestamp="1620159693443">
-      <screen x="0" y="25" width="2560" height="1328" />
+    <state width="1638" height="247" key="GridCell.Tab.0.right" timestamp="1621446870234">
+      <screen x="0" y="25" width="1680" height="958" />
     </state>
+    <state width="1638" height="247" key="GridCell.Tab.0.right/0.25.1680.956@0.25.1680.956" timestamp="1621444245565" />
+    <state width="1638" height="247" key="GridCell.Tab.0.right/0.25.1680.958@0.25.1680.958" timestamp="1621446870234" />
     <state width="1638" height="248" key="GridCell.Tab.0.right/0.25.1680.959@0.25.1680.959" timestamp="1617826186909" />
     <state width="2518" height="380" key="GridCell.Tab.0.right/0.25.2560.1328@0.25.2560.1328" timestamp="1620159693443" />
     <state width="2518" height="380" key="GridCell.Tab.0.right/0.25.2560.1330@0.25.2560.1330" timestamp="1620159613329" />
     <state width="2518" height="380" key="GridCell.Tab.0.right/0.25.2560.1331@0.25.2560.1331" timestamp="1620155704338" />
     <state width="2518" height="377" key="GridCell.Tab.0.right/0.25.2560.1333@0.25.2560.1333" timestamp="1617648404872" />
-    <state width="2518" height="464" key="GridCell.Tab.1.bottom" timestamp="1620072413548">
-      <screen x="0" y="25" width="2560" height="1328" />
+    <state width="1638" height="306" key="GridCell.Tab.1.bottom" timestamp="1621446571607">
+      <screen x="0" y="25" width="1680" height="958" />
     </state>
+    <state width="1638" height="306" key="GridCell.Tab.1.bottom/0.25.1680.958@0.25.1680.958" timestamp="1621446571607" />
     <state width="2518" height="464" key="GridCell.Tab.1.bottom/0.25.2560.1328@0.25.2560.1328" timestamp="1620072413548" />
     <state width="2518" height="464" key="GridCell.Tab.1.bottom/0.25.2560.1330@0.25.2560.1330" timestamp="1619989415888" />
     <state width="2518" height="464" key="GridCell.Tab.1.bottom/0.25.2560.1331@0.25.2560.1331" timestamp="1617649075475" />
-    <state width="2518" height="464" key="GridCell.Tab.1.center" timestamp="1620072413548">
-      <screen x="0" y="25" width="2560" height="1328" />
+    <state width="1638" height="306" key="GridCell.Tab.1.center" timestamp="1621446571606">
+      <screen x="0" y="25" width="1680" height="958" />
     </state>
+    <state width="1638" height="306" key="GridCell.Tab.1.center/0.25.1680.958@0.25.1680.958" timestamp="1621446571606" />
     <state width="2518" height="464" key="GridCell.Tab.1.center/0.25.2560.1328@0.25.2560.1328" timestamp="1620072413548" />
     <state width="2518" height="464" key="GridCell.Tab.1.center/0.25.2560.1330@0.25.2560.1330" timestamp="1619989415888" />
     <state width="2518" height="464" key="GridCell.Tab.1.center/0.25.2560.1331@0.25.2560.1331" timestamp="1617649075475" />
-    <state width="2518" height="464" key="GridCell.Tab.1.left" timestamp="1620072413548">
-      <screen x="0" y="25" width="2560" height="1328" />
+    <state width="1638" height="306" key="GridCell.Tab.1.left" timestamp="1621446571606">
+      <screen x="0" y="25" width="1680" height="958" />
     </state>
+    <state width="1638" height="306" key="GridCell.Tab.1.left/0.25.1680.958@0.25.1680.958" timestamp="1621446571606" />
     <state width="2518" height="464" key="GridCell.Tab.1.left/0.25.2560.1328@0.25.2560.1328" timestamp="1620072413548" />
     <state width="2518" height="464" key="GridCell.Tab.1.left/0.25.2560.1330@0.25.2560.1330" timestamp="1619989415888" />
     <state width="2518" height="464" key="GridCell.Tab.1.left/0.25.2560.1331@0.25.2560.1331" timestamp="1617649075474" />
-    <state width="2518" height="464" key="GridCell.Tab.1.right" timestamp="1620072413548">
-      <screen x="0" y="25" width="2560" height="1328" />
+    <state width="1638" height="306" key="GridCell.Tab.1.right" timestamp="1621446571607">
+      <screen x="0" y="25" width="1680" height="958" />
     </state>
+    <state width="1638" height="306" key="GridCell.Tab.1.right/0.25.1680.958@0.25.1680.958" timestamp="1621446571607" />
     <state width="2518" height="464" key="GridCell.Tab.1.right/0.25.2560.1328@0.25.2560.1328" timestamp="1620072413548" />
     <state width="2518" height="464" key="GridCell.Tab.1.right/0.25.2560.1330@0.25.2560.1330" timestamp="1619989415888" />
     <state width="2518" height="464" key="GridCell.Tab.1.right/0.25.2560.1331@0.25.2560.1331" timestamp="1617649075475" />
-    <state x="786" y="325" key="SettingsEditor" timestamp="1619446904424">
-      <screen x="0" y="25" width="2560" height="1328" />
+    <state x="516" y="241" key="SettingsEditor" timestamp="1621444394269">
+      <screen x="0" y="25" width="1680" height="958" />
     </state>
+    <state x="516" y="241" key="SettingsEditor/0.25.1680.956@0.25.1680.956" timestamp="1621443649986" />
+    <state x="516" y="241" key="SettingsEditor/0.25.1680.958@0.25.1680.958" timestamp="1621444394269" />
     <state x="786" y="325" key="SettingsEditor/0.25.2560.1328@0.25.2560.1328" timestamp="1619446904424" />
     <state x="880" y="427" key="Vcs.Push.Dialog.v2" timestamp="1617649201134">
       <screen x="0" y="25" width="2560" height="1331" />
@@ -330,11 +347,11 @@
     <state x="945" y="328" width="670" height="676" key="search.everywhere.popup/0.25.2560.1328@0.25.2560.1328" timestamp="1619449289703" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/vqe$gradients.coverage" NAME="gradients Coverage Results" MODIFIED="1617643458425" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/vqe$adam.coverage" NAME="adam Coverage Results" MODIFIED="1621446870226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/vqe$bfgs.coverage" NAME="bfgs Coverage Results" MODIFIED="1620157783918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/vqe$gradients.coverage" NAME="gradients Coverage Results" MODIFIED="1617643458425" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/vqe$computings.coverage" NAME="computings Coverage Results" MODIFIED="1617647369759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/vqe$simulations.coverage" NAME="simulations Coverage Results" MODIFIED="1620159660571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/vqe$ex.coverage" NAME="ex Coverage Results" MODIFIED="1620146284412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/vqe$adam.coverage" NAME="adam Coverage Results" MODIFIED="1620145836386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/vqe$simulations.coverage" NAME="simulations Coverage Results" MODIFIED="1621443650979" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

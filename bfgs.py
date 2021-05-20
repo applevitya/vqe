@@ -503,6 +503,13 @@ class OptimizeResult(dict):
 
 c1 =0.0001
 c2 = 0.99
+
+
+
+
+
+
+
 class _LineSearchError(RuntimeError):
     pass
 

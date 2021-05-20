@@ -9,6 +9,7 @@ import torch
 from qiskit.extensions import RXGate, RZGate, RYGate, HGate, XGate, IGate, CXGate, YGate, ZGate, CCXGate
 
 
+
 state_zero = np.array([[1.0], [0.0]]);
 I = IGate().to_matrix();
 X = XGate().to_matrix();
@@ -33,7 +34,7 @@ def schwinger_matrix(k):
         k == 6: np.kron(I,Z)   # IZ
     }[True]
 
-#@qml.qnode(dev, interface='tf')
+#@qml.qnode(dev, diff_method="finite-diff",interface='tf', mutable = True)
 def my_sheme(phi,wires):
     qml.RY(2*phi[0],wires=0).adjoint()
     qml.RZ(pi/2,wires = 0).adjoint()
@@ -71,7 +72,7 @@ H = qml.Hamiltonian((1.0,), (obs,))
 
 
 
-cost = qml.ExpvalCost(my_sheme, H, dev,interface="tf")
+cost = qml.ExpvalCost(my_sheme, H, dev,interface="tf",diff_method = 'best')
 
 
 phi = tf.Variable([1.0,1.0,0.0,0.0,0.0,0.0])
